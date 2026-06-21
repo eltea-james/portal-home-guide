@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>leyu – 产品与平台说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f2f4f7;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e293b;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    /* hero 区域 */
+    .hero {
+      text-align: center;
+      padding: 2.4rem 1rem 2rem;
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e6edf4;
+      margin-bottom: 2.2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 575;
+      letter-spacing: -0.02em;
+      color: #0c1a2b;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .sub {
+      font-size: 1.15rem;
+      color: #4a5a6e;
+      max-width: 600px;
+      margin: 0.4rem auto 1.2rem;
+      font-weight: 400;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      background: #eef3f9;
+      padding: 0.4rem 1.6rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #1f3a57;
+      border: 1px solid #d9e2ec;
+    }
+
+    /* 卡片网格 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.6rem;
+      margin: 2.4rem 0 1.8rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.6rem 1.5rem 1.8rem;
+      border: 1px solid #e2eaf2;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(0, 20, 40, 0.06);
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 550;
+      margin-bottom: 0.75rem;
+      color: #142b41;
+      border-left: 3px solid #8aa9c9;
+      padding-left: 0.8rem;
+    }
+
+    .card p {
+      color: #33485e;
+      font-size: 0.95rem;
+    }
+
+    .card p + p {
+      margin-top: 0.6rem;
+    }
+
+    .card .badge {
+      margin-top: 1rem;
+      display: inline-block;
+      font-size: 0.8rem;
+      background: #f0f4fa;
+      color: #1f3f5f;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      border: 1px solid #d0dde9;
+    }
+
+    /* 场景&提示卡片 */
+    .insight {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.8rem 1.8rem;
+      border: 1px solid #e2eaf2;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      margin: 1.8rem 0;
+    }
+
+    .insight h2 {
+      font-size: 1.5rem;
+      font-weight: 530;
+      color: #11263b;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.01em;
+    }
+
+    .insight-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+
+    .insight-item {
+      flex: 1 1 230px;
+      background: #f7faff;
+      border-radius: 20px;
+      padding: 1.2rem 1.4rem;
+      border: 1px solid #dfe9f2;
+    }
+
+    .insight-item strong {
+      display: block;
+      font-weight: 550;
+      margin-bottom: 0.3rem;
+      color: #1a3855;
+    }
+
+    .insight-item p {
+      color: #2d4a63;
+      font-size: 0.9rem;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.5rem 1.8rem;
+      border: 1px solid #e2eaf2;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      margin: 1.2rem 0 2rem;
+    }
+
+    .faq-mini h4 {
+      font-weight: 530;
+      font-size: 1.2rem;
+      color: #11263b;
+      margin-bottom: 0.8rem;
+    }
+
+    .faq-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      padding: 0.4rem 0;
+    }
+
+    .faq-row dt {
+      font-weight: 500;
+      color: #1d3e5b;
+      min-width: 120px;
+    }
+
+    .faq-row dd {
+      color: #2f4b66;
+      margin-left: 0;
+      flex: 1;
+      font-size: 0.9rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dce5ee;
+      margin: 0.8rem 0;
+    }
+
+    /* 链接与底部 */
+    .link-sentence {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.2rem 2rem;
+      margin: 2rem 0 1.2rem;
+      border: 1px solid #e2eaf2;
+      text-align: center;
+      font-size: 1rem;
+      color: #1d374f;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .link-sentence a {
+      color: #1f5582;
+      text-decoration: none;
+      font-weight: 510;
+      border-bottom: 1px solid #b5cbd9;
+      transition: border-color 0.1s, color 0.1s;
+    }
+
+    .link-sentence a:hover {
+      color: #0f3b5e;
+      border-bottom-color: #1f5582;
+    }
+
+    .footnote {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #5b6f83;
+      margin-top: 1.8rem;
+      border-top: 1px solid #d7e1eb;
+      padding-top: 1.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 1.2rem 0.8rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero .sub { font-size: 1rem; }
+      .insight-flex { gap: 1.2rem; }
+      .faq-row { flex-direction: column; gap: 0.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <section class="hero">
+    <h1>leyu · 平台说明</h1>
+    <div class="tagline">持续迭代 · 一致入口</div>
+    <p class="sub">
+      面向信息聚合与轻量化工具场景，<strong>leyu</strong> 提供稳定的访问路径与克制的功能布局。本页汇总产品定位、亮点特征及使用参考。
+    </p>
+  </section>
+
+  <div class="grid">
+    <div class="card">
+      <h3>摘要</h3>
+      <p>leyu 定位为可收藏、可重复访问的数字空间。不追求高频推送，侧重信息结构化与长期可读性。每次打开所见即所得，适合定期查阅更新。</p>
+      <div class="badge">版本迭代可见</div>
+    </div>
+    <div class="card">
+      <h3>核心亮点</h3>
+      <p>• 基于场景的模块组织，减少冗余导航<br>• 低干扰界面，主要操作均在一级路径内<br>• 内容更新有明确标识，便于回访用户定位变化</p>
+    </div>
+    <div class="card">
+      <h3>使用建议</h3>
+      <p>建议将 <strong>leyu</strong> 添加至浏览器书签或收藏夹。周期性回访可快速获取内容变化，无需重复搜索或记忆复杂地址。</p>
+      <p>移动端与桌面端布局自适应，保持一致的浏览层次。</p>
+    </div>
+  </div>
+
+  <div class="insight">
+    <h2>场景 & 提示</h2>
+    <div class="insight-flex">
+      <div class="insight-item">
+        <strong>再次访问</strong>
+        <p>通过收藏夹或直接输入地址回到页面，所有近期调整均保留变更记录标识，方便对比。</p>
+      </div>
+      <div class="insight-item">
+        <strong>收藏价值</strong>
+        <p>页面结构稳定，主要入口长期有效。不依赖第三方跳转，减少链接失效风险。</p>
+      </div>
+      <div class="insight-item">
+        <strong>持续关注</strong>
+        <p>不定期进行内容补充与模块优化，保持信息密度但不过载。无弹窗或强制推送。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-mini">
+    <h4>FAQ 摘要</h4>
+    <dl class="faq-row">
+      <dt>是否需要注册？</dt>
+      <dd>当前页面及关联平台无需强制注册，可直接浏览主要模块。部分功能可能在未来增量开放。</dd>
+    </dl>
+    <hr>
+    <dl class="faq-row">
+      <dt>内容更新频率？</dt>
+      <dd>按需更新，非固定周期。更新时会在页面内标注最近变动，建议每月回访一次。</dd>
+    </dl>
+    <hr>
+    <dl class="faq-row">
+      <dt>是否支持多端？</dt>
+      <dd>标准响应式设计，手机、平板、桌面均可获得合理阅读与导航体验。</dd>
+    </dl>
+  </div>
+
+  <div class="link-sentence">
+    若需直接访问，可点击 <a href="https://portal-home-leyu.com">leyu</a> 进入对应页面。该地址长期有效，适合收藏。
+  </div>
+
+  <div class="footnote">
+    <span>信息索引 · 产品说明页</span><br>
+    <span>基于真实功能描述，不构成服务承诺。</span>
+  </div>
+</div>
+</body>
+</html>
